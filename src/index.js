@@ -10,8 +10,7 @@ module.exports = {
 		},
 		{
 			files: ["*.html"],
-			extends: ["plugin:@angular-eslint/template/recommended"],
-			rules: {}
+			extends: ["./template"]
 		}
 	]
 };

@@ -25,18 +25,26 @@
     "eslint",
     "eslint-config"
   ],
-  "dependencies": {
-    "@angular-eslint/builder": "^16.3.1",
-    "@angular-eslint/eslint-plugin": "^16.3.1",
-    "@angular-eslint/eslint-plugin-template": "^16.3.1",
-    "@angular-eslint/schematics": "^16.3.1",
-    "@angular-eslint/template-parser": "^16.3.1",
-    "@typescript-eslint/eslint-plugin": "^7.4.0",
-    "@typescript-eslint/parser": "^7.4.0",
-    "eslint": "^8.56.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsdoc": "^48.2.3",
-    "eslint-plugin-no-null": "^1.0.2",
+  "main": "src/index.js",
+	"exports": {
+		".": "./src/index.js",
+		"./sonarjs": "./src/sonarjs/index.js",
+		"./template": "./src/template/index.js",
+		"./test": "./src/test/index.js",
+		"./typescript": "./src/typescript/index.js"
+	},
+	"dependencies": {
+		"@angular-eslint/builder": "^22.0.0",
+		"@angular-eslint/eslint-plugin": "^22.0.0",
+		"@angular-eslint/eslint-plugin-template": "^22.0.0",
+		"@angular-eslint/schematics": "^22.0.0",
+		"@angular-eslint/template-parser": "^22.0.0",
+		"@typescript-eslint/eslint-plugin": "^8.61.0",
+		"@typescript-eslint/parser": "^8.61.0",
+		"eslint": "^9.39.4",
+		"eslint-plugin-import": "^2.32.0",
+		"eslint-plugin-jsdoc": "^48.2.3",
+		"eslint-plugin-no-null": "^1.0.2",
     "eslint-plugin-unicorn": "^52.0.0"
   },
   "devDependencies": {

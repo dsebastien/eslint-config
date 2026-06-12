@@ -2,19 +2,31 @@ module.exports = {
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
 		project: "tsconfig.json",
-		sourceType: "module"
+		sourceType: "module",
+		tsconfigRootDir: process.cwd()
 	},
-	plugins: ["eslint-plugin-import", "eslint-plugin-no-null", "eslint-plugin-unicorn", "eslint-plugin-jsdoc", "@typescript-eslint"],
+	plugins: ["eslint-plugin-import", "eslint-plugin-no-null", "eslint-plugin-unicorn", "eslint-plugin-jsdoc", "@typescript-eslint", "@angular-eslint", "@angular-eslint/template"],
+	processor: "@angular-eslint/template/extract-inline-html",
 	root: true,
 	ignorePatterns: ["*.spec.ts"],
 	extends: [
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
-		"plugin:@angular-eslint/recommended",
-		"plugin:@angular-eslint/template/process-inline-templates",
 		"plugin:jsdoc/recommended-typescript-error"
 	],
 	rules: {
+		"@angular-eslint/component-class-suffix": "error",
+		"@angular-eslint/contextual-lifecycle": "error",
+		"@angular-eslint/directive-class-suffix": "error",
+		"@angular-eslint/no-empty-lifecycle-method": "error",
+		"@angular-eslint/no-input-rename": "error",
+		"@angular-eslint/no-inputs-metadata-property": "error",
+		"@angular-eslint/no-output-native": "error",
+		"@angular-eslint/no-output-on-prefix": "error",
+		"@angular-eslint/no-output-rename": "error",
+		"@angular-eslint/no-outputs-metadata-property": "error",
+		"@angular-eslint/use-lifecycle-interface": "warn",
+		"@angular-eslint/use-pipe-transform-interface": "error",
 		"@typescript-eslint/adjacent-overload-signatures": "error",
 		"@typescript-eslint/array-type": "off",
 		"@typescript-eslint/await-thenable": "error",
@@ -75,8 +87,10 @@ module.exports = {
 				trailingUnderscore: "allow"
 			}
 		],
+		"@typescript-eslint/no-duplicate-enum-values": "off",
 		"@typescript-eslint/no-dynamic-delete": "off",
 		"@typescript-eslint/no-empty-function": "error",
+		"@typescript-eslint/no-empty-object-type": "off",
 		"@typescript-eslint/no-empty-interface": "off",
 		"@typescript-eslint/no-explicit-any": "off",
 		"@typescript-eslint/no-extraneous-class": "off",
@@ -105,6 +119,7 @@ module.exports = {
 		"@typescript-eslint/no-unnecessary-qualifier": "error",
 		"@typescript-eslint/no-unnecessary-type-arguments": "error",
 		"@typescript-eslint/no-unnecessary-type-assertion": "error",
+		"@typescript-eslint/no-unsafe-function-type": "off",
 		"@typescript-eslint/no-unused-expressions": "error",
 		"@typescript-eslint/no-unused-vars": [
 			"error",

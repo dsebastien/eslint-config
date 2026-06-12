@@ -25,9 +25,10 @@ syncOptions=(-a --include="README.md" --include="LICENSE" --include="package.jso
 syncFiles ${currentDir} ${distFolder} "${syncOptions[@]}"
 unset syncOptions
 
-logInfo "Copy src content in dist"
+logInfo "Copy src content in dist/src"
+mkdir -p ${distFolder}/src
 syncOptions=(-a)
-syncFiles "${currentDir}/src" ${distFolder} "${syncOptions[@]}"
+syncFiles "${currentDir}/src" ${distFolder}/src "${syncOptions[@]}"
 unset syncOptions
 
 logInfo "Generate npm package (tgz file)"
