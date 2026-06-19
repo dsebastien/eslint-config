@@ -1,3 +1,5 @@
+const { recommendedTypeScriptRules } = require("../angular-eslint-rules");
+
 module.exports = {
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
@@ -5,28 +7,26 @@ module.exports = {
 		sourceType: "module",
 		tsconfigRootDir: process.cwd()
 	},
-	plugins: ["eslint-plugin-import", "eslint-plugin-no-null", "eslint-plugin-unicorn", "eslint-plugin-jsdoc", "@typescript-eslint", "@angular-eslint", "@angular-eslint/template"],
+	plugins: [
+		"eslint-plugin-import",
+		"eslint-plugin-no-null",
+		"eslint-plugin-unicorn",
+		"eslint-plugin-jsdoc",
+		"@typescript-eslint",
+		"@angular-eslint",
+		"@angular-eslint/template"
+	],
 	processor: "@angular-eslint/template/extract-inline-html",
 	root: true,
 	ignorePatterns: ["*.spec.ts"],
-	extends: [
-		"eslint:recommended",
-		"plugin:@typescript-eslint/recommended",
-		"plugin:jsdoc/recommended-typescript-error"
-	],
+	extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:jsdoc/recommended-typescript-error"],
 	rules: {
+		...recommendedTypeScriptRules,
 		"@angular-eslint/component-class-suffix": "error",
-		"@angular-eslint/contextual-lifecycle": "error",
 		"@angular-eslint/directive-class-suffix": "error",
-		"@angular-eslint/no-empty-lifecycle-method": "error",
-		"@angular-eslint/no-input-rename": "error",
-		"@angular-eslint/no-inputs-metadata-property": "error",
-		"@angular-eslint/no-output-native": "error",
-		"@angular-eslint/no-output-on-prefix": "error",
-		"@angular-eslint/no-output-rename": "error",
-		"@angular-eslint/no-outputs-metadata-property": "error",
-		"@angular-eslint/use-lifecycle-interface": "warn",
-		"@angular-eslint/use-pipe-transform-interface": "error",
+		// These new Angular 22 recommendations require broad consumer migrations first.
+		"@angular-eslint/prefer-inject": "off",
+		"@angular-eslint/prefer-standalone": "off",
 		"@typescript-eslint/adjacent-overload-signatures": "error",
 		"@typescript-eslint/array-type": "off",
 		"@typescript-eslint/await-thenable": "error",
