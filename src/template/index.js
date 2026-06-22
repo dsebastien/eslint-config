@@ -5,7 +5,7 @@ module.exports = {
 	plugins: ["@angular-eslint/template"],
 	rules: {
 		...recommendedTemplateRules,
-		// This is a large consumer-side template migration that is tracked separately.
+		// Stark and ngx-form-errors still have large ngIf/ngFor/ngSwitch template migrations pending.
 		"@angular-eslint/template/prefer-control-flow": "off"
 	}
 };
