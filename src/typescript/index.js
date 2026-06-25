@@ -84,7 +84,6 @@ module.exports = {
 				trailingUnderscore: "allow"
 			}
 		],
-		"@typescript-eslint/no-duplicate-enum-values": "off",
 		"@typescript-eslint/no-dynamic-delete": "off",
 		"@typescript-eslint/no-empty-function": "error",
 		"@typescript-eslint/no-empty-object-type": "off",
