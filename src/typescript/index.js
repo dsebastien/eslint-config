@@ -24,12 +24,6 @@ module.exports = {
 		...recommendedTypeScriptRules,
 		"@angular-eslint/component-class-suffix": "error",
 		"@angular-eslint/directive-class-suffix": "error",
-		// Temporary Angular 22 migration carve-outs for shared NBB consumers:
-		// - prefer-inject: Stark still has hundreds of reportable constructor DI parameters.
-		// - prefer-standalone: Stark intentionally keeps many NgModule declarations with standalone: false.
-		// Keep the recommended baseline everywhere else and remove these carve-outs repo by repo.
-		"@angular-eslint/prefer-inject": "off",
-		"@angular-eslint/prefer-standalone": "off",
 		"@typescript-eslint/adjacent-overload-signatures": "error",
 		"@typescript-eslint/array-type": "off",
 		"@typescript-eslint/await-thenable": "error",
