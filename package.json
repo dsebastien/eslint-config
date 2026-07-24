@@ -1,0 +1,93 @@
+{
+  "name": "@nationalbankbelgium/eslint-config",
+  "version": "16.0.0",
+  "description": "ESLint configuration used at the National Bank of Belgium",
+  "author": {
+    "email": "alexis.georges@nbb.be",
+    "name": "Alexis Georges",
+    "url": "https://www.nbb.be"
+  },
+  "contributors": [
+    {
+      "email": "michael.henkens@nbb.be",
+      "name": "Michael Henkens",
+      "url": "https://github.com/mhenkens"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/nationalbankbelgium/eslint-config",
+  "bugs": "https://github.com/nationalbankbelgium/eslint-config/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NationalBankBelgium/eslint-config.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./sonarjs": "./src/sonarjs/index.js",
+    "./template": "./src/template/index.js",
+    "./test": "./src/test/index.js",
+    "./typescript": "./src/typescript/index.js"
+  },
+  "dependencies": {
+    "angular-eslint": "^22.0.0",
+    "@angular-eslint/builder": "^22.0.0",
+    "@angular-eslint/eslint-plugin": "^22.0.0",
+    "@angular-eslint/eslint-plugin-template": "^22.0.0",
+    "@angular-eslint/schematics": "^22.0.0",
+    "@angular-eslint/template-parser": "^22.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.61.0",
+    "@typescript-eslint/parser": "^8.61.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsdoc": "^48.2.3",
+    "eslint-plugin-no-null": "^1.0.2",
+    "eslint-plugin-unicorn": "^52.0.0",
+    "typescript-eslint": "^8.61.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "@nationalbankbelgium/code-style": "^1.8.0",
+    "@release-it/conventional-changelog": "^5.1.1",
+    "commitizen": "^4.3.0",
+    "conventional-changelog-cli": "^2.0.31",
+    "cz-customizable": "^7.0.0",
+    "husky": "^9.0.10",
+    "lint-staged": "^13.2.2",
+    "pinst": "~3.0.0",
+    "prettier": "~3.1.1",
+    "release-it": "^15.10.3"
+  },
+  "scripts": {
+    "build": "bash ./build.sh",
+    "clean": "npx rimraf dist",
+    "clean:modules": "npx rimraf ./node_modules package-lock.json",
+    "clean:slate": "npm run clean:modules && npm install",
+    "commit": "cz",
+    "format": "prettier \"**/*.{css,html,js,json,md,pcss,scss,ts,yml}\" --write --html-whitespace-sensitivity strict",
+    "generate:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "generate:changelog-recent": "conventional-changelog -p angular | tail -n +3",
+    "prepack": "pinst --disable",
+    "prepublishOnly": "pinst --disable",
+    "_postinstall": "husky install",
+    "postpack": "pinst --enable",
+    "postpublish": "pinst --enable",
+    "release": "release-it",
+    "release:publish": "bash ./release-publish.sh --trace"
+  },
+  "lint-staged": {
+    "*.{css,html,js,json,md,pcss,scss,ts,yml}": [
+      "prettier --write --html-whitespace-sensitivity strict"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    }
+  }
+}
